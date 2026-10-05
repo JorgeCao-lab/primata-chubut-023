@@ -34,7 +34,7 @@ El sitio presenta información de la academia, sus horarios de entrenamiento, pr
 
 El proyecto se encuentra desplegado en Vercel:
 
-🔗 **[Ver sitio online](PEGAR-AQUI-LINK-DE-VERCEL)**
+🔗 **[Ver sitio online](https://primata-chubut-023.vercel.app/)**
 
 ---
 
