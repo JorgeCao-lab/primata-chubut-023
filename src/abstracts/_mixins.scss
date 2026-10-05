@@ -1,0 +1,183 @@
+@use '../abstracts/variables';
+
+@mixin hover-logos{
+    &:hover{
+        transform: scale(1.1);
+        transition-duration: 0.8s;
+        transition-timing-function:ease-in-out;
+        color: variables.$red-color;
+    }
+}
+
+@mixin hover-scrol-a{
+    transition:color 0.5s ease;
+    color:variables.$coral-color;
+}
+
+@mixin line-a-hover(
+    $width:0,
+    $height:2px,
+){
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    width:$width;
+    height:$height;
+    
+    background: linear-gradient(
+        to right,
+        variables.$white-color,
+        variables.$black-color
+    );
+    transition:width 0.8s ease;
+}
+
+@mixin shadow-line($color,$size:2px
+){
+    text-shadow: 
+    $size $size 0 $color,
+    (-$size) $size 0 $color,
+    $size (-$size) 0 $color,
+    (-$size) (-$size) 0 $color
+}
+
+@mixin icon-hover($color,$scale){
+
+    transition: (0.8s,color 0.8s);
+
+    &:hover{
+        transform: ($scale(1.1));
+        color: $color;
+    }
+}
+
+@mixin button(
+    $width:auto,
+    $height:auto,
+    $border-color:variables.$red-color
+){
+    width:$width;
+    height: $height;
+
+    border:2px solid $border-color;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:15px;
+    padding-inline: 1rem;
+
+    background: transparent;
+    text-decoration: none;
+}
+
+@mixin button-hover(
+    $border-color,
+    $background-color,
+    $color,
+    $border-width:2px
+    ){
+
+    transition: 
+        border-color 0.4s,
+        background-color 0.4s,
+        color 0.4s,
+        border-width 0.4s;
+
+    &:hover{
+        border-color:$border-color;
+        background-color:$background-color;
+        color:$color;
+        border-width:$border-width;
+    }
+}
+
+@mixin card(
+    $width:auto,
+    $height:auto,
+    $background-color:variables.$grey-color,
+    $border-color:variables.$black-color
+)
+{
+    width:$width;
+    height:$height;
+
+
+    overflow: hidden;
+
+    border: 1px solid $border-color;
+
+    display: inline-block;
+    align-items: center;
+    text-decoration: none;
+
+    transition: 
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        border-radius 0.5s ease;
+
+    &:hover{
+        transform:scale(1.04);
+        border-radius: 5%;
+        border-color:variables.$white-color;
+
+    }
+}
+
+@mixin despliegue(
+    $contenedor-padre,
+    $elemento-efecto,
+    $max-height:250px,
+    $x:-20px,
+    $y:0px,
+    $duration:0.5s
+
+    ){
+        //ESTADO CERRADO
+        opacity: 0;
+        max-height: 0;
+        transform: translate($x,$y);
+
+        /*@if $axis == x {
+            transform: traslateX($traslate);
+        } @else if $axis == y{
+            transform: traslateY($traslate);
+        }*/
+
+        transition: 
+            opacity $duration ease,
+            max-height $duration ease,
+            transform $duration ease;
+
+        //ESTADO ABIERTO
+
+        @at-root #{$contenedor-padre}:hover #{$elemento-efecto}{
+            opacity: 1;
+            max-height:$max-height;
+            transform: translate(0 , 0);
+        }
+    
+    }
+
+    @mixin tablet{
+        @media 
+            (min-width:768px){
+                @content;
+        }
+    }
+
+    @mixin desktop{
+        @media
+        (min-width: 1024px){
+            @content;
+        }
+    }
+
+    @mixin desktop-xl{
+        @media 
+        (min-width:1280px){
+            @content;
+        }
+    }

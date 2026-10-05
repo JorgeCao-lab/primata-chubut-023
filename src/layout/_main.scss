@@ -1,0 +1,512 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    filter: brightness(60%) sepia(45%);
+    &__img-spider{
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        &::after{
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.3)
+            );
+            pointer-events: none;
+        }
+        .main__blur{
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit:contain;
+            border-radius: 1%;  
+        }
+    }
+
+    &__location{
+            position: absolute;
+            bottom: 0.5rem;
+            left: 1rem;
+            display: inline-flex;
+            gap: 0.2rem;
+            z-index: 30;
+        
+            @include mixins.button(auto, auto);
+
+            @include mixins.button-hover(
+               variables.$cream-color,
+             rgba(59, 48, 51, 0.9),
+               variables.$black-color,
+               2px
+            );
+        }           
+        .main__png{
+            width: 20px;
+            height: 20px;
+            max-width: 20px;
+            padding: 0;
+        }                                                                                                                                                                                         
+        /*falta poner png de ubicacion!!*/
+    &__title{
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 4px;
+        text-align: center;
+        margin-inline: auto;
+        z-index: 3;
+        color:variables.$cream-color;
+       
+        @include mixins.shadow-line(variables.$red-color,2px)
+    }
+    &__bienvenida{
+        margin-inline: auto;
+        max-width: 25ch;
+        letter-spacing: 2px;
+        font-weight: 600;
+
+    }
+    .academia{
+        display: flex;
+        flex-direction: column;
+        margin-inline: auto;
+        width: 100%;
+        height: auto;
+        justify-content:center;
+        align-items: center;
+        background: variables.$black-color;
+        overflow: hidden;
+
+
+        &__cards{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            padding-inline: .5rem;
+            gap: .5rem;
+        }  
+        
+        img{   
+            display:block;
+            width: 100%;
+            height: auto;
+            object-fit:cover;
+            }
+    .card-img{
+        @include mixins.card;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 5vh;
+        
+
+        /*background-image: url(/img/images.jpeg);*/
+        background-size: cover;
+
+        h2{
+        color: variables.$white-color;
+        padding-left: 1rem;
+        margin: 0;
+
+        @include mixins.shadow-line(variables.$red-color,2px)
+        }
+    }
+    &__name{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        color: variables.$coral-color;
+    }
+    }
+
+    .horarios{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background:linear-gradient(
+            to top,
+        
+        variables.$grey-color,
+        variables.$black-color
+        );
+    }
+    
+   
+        .title{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding-bottom:0.5rem;
+            color: variables.$cream-color;
+            @include mixins.shadow-line(variables.$red-color,2px);
+        } 
+    &__cartel-acdemia{
+        width: 100%;
+        max-width:400px;
+        margin-inline: auto;
+    }
+    .img-cartel{
+        display: block;
+        width: 100%;
+        height:auto; 
+        object-fit: contain;
+        margin-top:-2rem
+    }
+    .horarios__bjj{
+        display: flex;
+        width: clamp(280px, 80%, 400px);
+        height: auto;
+        flex-direction: column;
+        gap: 1rem;
+        margin-inline: auto;
+        padding-left: 1rem;
+        padding-top: 1rem;
+    }
+
+    .horarios__card-bjj{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 1rem;
+        margin-inline: auto;
+        padding: 0.5rem;
+        padding-top: 3px;
+        border-radius: 5% 5% 0 0;
+
+        @include mixins.card;
+
+        background:variables.$grey-color;
+        border-radius: 10% 10% 0 0;
+        border-color: variables.$grey-color;
+        padding-bottom: 0;
+        margin-bottom: .5rem;
+
+        
+        &:hover::before{
+            position: absolute;
+            width: 100%;
+            
+         
+        }
+            height: auto;
+            color:variables.$cream-color;
+        }
+        
+        .horarios__card-bjj::before{
+            @include mixins.line-a-hover;
+
+
+            height: 4px;
+            top: 0;
+
+            background: linear-gradient(
+                to right,
+                variables.$red-color,
+                variables.$coral-color
+            );
+            transition:width 1.6s ease;
+        }
+
+
+         .horarios__card-title{
+            margin: 0;
+            padding: 0;
+            font-weight: 700;
+
+        }
+
+        .horarios__descripcion{
+            display:flex;
+            margin: 5px;
+            padding: 2px;
+            color: variables.$red-color;
+            margin-bottom: 10px;
+            
+            @include mixins.button;
+        }
+
+       .horario__cartel {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+        @include mixins.despliegue(
+            '.horarios__card-bjj',
+            '.horario__cartel',
+            250px,
+            0px,
+            -100px,
+            1.2s
+        );
+            p{  
+                max-width: 80%;
+                margin:10px 10px 10px 0;
+                padding: 0px;
+                font-weight: 700;
+            }
+        }       
+
+        /*.horarios__card-bjj:hover .horario__cartel{
+            max-height: 250px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: 1.5s ease-in-out;
+        }*/
+
+        .horarios__card-bjj:hover::before{
+            width: 100%;
+        }
+
+
+        .horario__calendario{
+            margin: 10px;
+            width: 40px;
+        }
+
+        .img-bjj{
+            margin-inline: auto;
+            width: 100%;
+            height: auto;
+            border-radius: 4%;
+            object-fit: cover;
+
+        }
+        .profesores{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: variables.$grey-color;
+
+        .title-h3{
+            color:variables.$red-color;
+            @include mixins.shadow-line(variables.$coral-color,2px);
+        }
+
+        &__card{
+            display: flex;
+            flex-direction: column;
+             width: clamp(280px, 80%, 400px);
+        }
+
+        &__card-descripcion{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 90%;
+
+                @include mixins.despliegue(
+                '.profesores__card-img',
+                '.profesores__card-descripcion',
+                250px,
+                -100px,
+                -50px,
+                1.2s
+            );
+        }
+
+        &__card-img img{
+            display: block;
+            width: 90%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        &__card-img{
+            flex-direction: column;
+            margin-bottom: 1rem;
+            @include mixins.card;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: solid variables.$black-color 3px;
+            border-radius: 2%;
+            &:hover{
+                border-color: transparent;
+            }
+
+
+            &:hover::before{
+                width: 100%;
+            }
+        }
+
+
+        &__card-img::before{
+            @include mixins.line-a-hover;
+
+            height: 3px;
+            top: 0;
+
+            background: linear-gradient(
+                to right,
+                variables.$coral-color,
+                variables.$grey-color,
+            );
+            transition: width 1.6s ease;
+        }
+
+    }
+     
+}
+
+
+//MEDIA QUERIS
+
+@include mixins.tablet{
+    .main{
+        .container{
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            grid-template-rows: auto auto;
+
+            grid-template-areas: 
+            
+            "img img"
+            "h1 p"   ;
+
+            .main__img-spider {
+                grid-area: img;
+            }
+
+            .main__title{
+                grid-area: h1;
+            }
+
+            .main__bienvenida{
+                grid-area: p;
+            }
+        }
+       
+    }
+    .main{
+        .horarios{
+            &__bjj{
+                display: grid;
+                width: 100%;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+
+            }
+            &__card-bjj{
+
+                width: 100%;
+                max-width: none;
+            }
+
+             #horario-Niños{
+            padding-bottom: 3rem;
+        }
+        }
+    }
+}
+
+@include mixins.desktop{
+    .main{
+        &__img-spider{
+            width:100%;
+            overflow: hidden;
+            }
+        &__blur{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &__location{
+            margin-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        &__title{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-left: 4rem;
+            text-align: center;
+        }
+        &__bienvenida{
+            display: flex;
+            justify-content: end;
+            margin-right: 4rem;
+        
+        }
+        .academia{
+            &__title{
+                padding-bottom: 3rem;
+            }
+            &__cards{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 1.3rem;
+            }
+        }   
+        .horarios{
+            &__bjj{
+                justify-items: center;
+                margin: 0;
+                padding: 0;
+                gap: 3rem;
+            }
+            &__card-bjj{
+            width: 85%;
+            margin:0;
+            padding: 0;            
+            }
+        }
+        .profesores{
+               width: 100%;
+               height: auto;
+               padding-bottom: 2rem;
+               &__card{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                width: auto;
+               }
+        }
+       
+    }
+     .footer{
+            .footer__descripcion{
+                display: flex;
+                justify-content:space-between;
+                align-items: start;
+            }
+            p{
+                margin: 0;
+                padding: 5px;
+            }
+            .footer__redes{
+                ul{
+                display: flex;
+                justify-content: center;
+                align-items: end;
+                }
+            }
+            .footer__redes-img{
+                width: clamp(18px,3vw,28px);
+            }
+        }
+    
+}

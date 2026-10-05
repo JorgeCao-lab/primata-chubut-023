@@ -1,0 +1,100 @@
+@use './reset';
+@use './typography';
+@use '../abstracts/variables';
+
+
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+body::after{ 
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    content:"";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: /*linear-gradient(
+        to top,
+        transparent 0%,
+        rgba(0 ,0 ,0 ,.70) 10%,
+        rgba(0 ,0 ,0 ,.65) 70%,
+        rgba(0 ,0 ,0 ,.95) 100%
+        black 30%,rgba(112, 110, 110,0.8),
+    );*/
+    variables.$black-color;
+    pointer-events: none;
+    }
+
+    header,
+main {
+    position: relative;
+    z-index: 10;
+}
+
+.footer {
+    position: relative;
+    z-index: 10;
+}
+
+h1{ 
+    width: 350px;
+    white-space:normal;
+    font-family: variables.$font-primary;
+    font-size:clamp(3.5rem , 6vw, 5rem);
+    font-weight: 900;
+    line-height: .9;
+}
+p{  
+    max-width: 300px;
+    width: 100%;
+    font-family: variables.$font-secondary;
+    font-size:clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 300;
+    flex-shrink:0;
+    padding-bottom: 5%;
+    line-height: 1.1;
+    color: variables.$cream-color;
+}
+
+h2{
+    font-family: variables.$font-secondary;
+    font-size:clamp(3.1rem, 5vw ,3.75rem);
+    font-weight: 900;
+    padding-bottom: 3%;
+    line-height: .9;
+}
+
+h3{
+    font-family: variables.$font-secondary;
+    font-weight: 900;
+    font-size: clamp(2rem,3vw,2.25rem);
+    line-height: .9;
+}
+
+h5{
+    font-family: variables.$font-secondary;
+    font-size: clamp(1rem,vw,3rem);
+    font-weight: 900;
+    line-height: .9;
+}
+
+ul,ol {
+    list-style-type: none;
+}
+
+a{  
+    font-size: clamp(1rem, 0.5rem + 1.5vw, 1.5rem);
+    text-decoration: none;
+    color: variables.$cream-color;
+    font-weight:600;
+}
+
+img{
+    display: block;
+    max-height: 100vh;
+    object-fit: contain;
+}

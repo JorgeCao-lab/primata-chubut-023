@@ -1,0 +1,22 @@
+@forward './header';
+@forward'./main';
+@forward'./footer';
+
+.whatsapp {
+    position: fixed;
+    left: 2rem;
+    bottom: 10px;
+    filter: opacity(40%);
+    z-index: 999;
+
+    img {
+        width: clamp(20px,30vw,40px);
+        height: auto;
+    }
+}
+
+.whatsapp:hover{
+    transform: scale(1.1);
+    transition: 0.8s ease-in-out;
+    filter:none;
+}   
