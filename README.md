@@ -26,7 +26,7 @@ El sitio presenta información de la academia, sus horarios de entrenamiento, pr
 
 ### Página principal
 
-![Preview de Primata-chubut] (./screenshots/primata-chubut-preview.png)
+![Preview de Primata-chubut](./screenshots/primata-chubut-preview.png)
 
 ---
 
