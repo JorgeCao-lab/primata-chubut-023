@@ -1,6 +1,6 @@
-# 🥋 Primata Chubut 023
+# 🥋 Raph gracie jiu jitsu
 
-Sitio web institucional para **Primata Chubut 023 – Ralph Gracie Jiu Jitsu**, una academia de Brazilian Jiu Jitsu.
+Sitio web institucional para **– Ralph Gracie Jiu Jitsu**, una academia de Brazilian Jiu Jitsu.
 
 El proyecto fue desarrollado con un enfoque **Mobile First**, utilizando HTML, Sass y Vite, con una estructura organizada por componentes, layouts, variables y mixins reutilizables.
 
